@@ -316,7 +316,7 @@ section {
 }
 .about-text {
   text-align: justify;
-  text-justify: inter-word;
+  text-justify: inter-character;
 }
 .skills {
   padding: 30px;
