@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             switch (link) {
                 case aboutLink:
                     fetchContent(link, 'about.html');
+                    console.log(link);
                     break;
                 case workLink:
                     fetchContent(link, 'work.html');
@@ -34,12 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function fetchContent(link, page) {
         let baseURL = `${window.location.protocol}//${window.location.hostname}`;
-
+        console.log(baseURL);
         if (window.location.port) {
             baseURL += `:${window.location.port}`;
         }
 
-        fetch(`${baseURL}/${page}`)
+        fetch(`${baseURL}/ReemMaterPortfolio2021/${page}`)
             .then(function (response) {
                 return response.text()
             })
