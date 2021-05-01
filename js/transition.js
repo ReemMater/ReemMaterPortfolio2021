@@ -16,16 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('active');
             switch (link) {
                 case aboutLink:
-                    link = 'about.html';
+                    fetchContent(link, 'about.html');
                     break;
                 case workLink:
-                    link = 'work.html';
+                    fetchContent(link, 'work.html');
                     break;
                 case projectLink:
-                    link = 'project.html';
+                    fetchContent(link, 'project.html');
                     break;
                 case contactLink:
-                    link = 'contact.html';
+                    fetchContent(link, 'contact.html');
                     break;
 
             }
@@ -39,10 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
             baseURL += `:${window.location.port}`;
         }
 
-        fetch(`${baseURL}/${link}`)
-
+        fetch(`${baseURL}/${page}`)
+            .then(function (response) {
+                return response.text()
+            })
             .then(function (html) {
-
+                let doc = new DOMParser().parseFromString(html, "text/html");
 
 
                 const section = document.getElementsByClassName('content')[0];
