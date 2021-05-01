@@ -40,11 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         fetch(`${baseURL}/${page}`)
-            .then(function (response) {
-                return response.text()
-            })
+
             .then(function (html) {
-                let doc = new DOMParser().parseFromString(html, "text/html");
+
 
 
                 const section = document.getElementsByClassName('content')[0];
